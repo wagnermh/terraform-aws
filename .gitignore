@@ -1,0 +1,34 @@
+##
+# Terraform repo .gitignore
+# Source: https://github.com/github/gitignore/blob/master/Terraform.gitignore
+##
+
+# Diretorio Local .terraform
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Arquivo de log - Crash log
+crash.log
+
+# Ignora quaisquer arquivos .tfvars que são gerados automaticamente para cada execução do Terraform. Maioria
+# Os arquivos .tfvars são gerenciados como parte da configuração e, portanto, devem ser incluídos no
+# controle de versão.
+#
+# example.tfvars
+
+# Ignora arquivos de substituição, pois eles geralmente são usados para substituir recursos localmente e assim
+# não são verificados
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Incluir arquivos de substituição que você deseja adicionar ao controle de versão usando o padrão negado
+#
+# !example_override.tf
+
+# Incluir arquivos tfplan para ignorar a saída do plano do comando: terraform plan -out=tfplan
+# example: *tfplan*
