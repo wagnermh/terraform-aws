@@ -13,7 +13,10 @@ on:
     - terraform/**
 
 env: 
-  TF_LOG: INFO
+  TF_LOG: DEBUG ##INFO
+  TF_LOG_CORE: INFO
+  TF_LOG_PROVIDER: INFO
+  TF_ACC_LOG: INFO
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   #BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
