@@ -16,7 +16,7 @@ env:
   TF_LOG: INFO
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
+  #BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
 
 jobs:
   terraform:
@@ -39,7 +39,7 @@ jobs:
       
       - name: Terraform init
         id: init
-        run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
+        run: terraform init ##-backend-config="bucket=$BUCKET_TF_STATE"
 
       - name: Terraform format
         id: fmt
