@@ -44,22 +44,42 @@ jobs:
         id: init
         run: terraform init ##-backend-config="bucket=$BUCKET_TF_STATE"
 
+      - name: Sleep for 20 secondes
+        run: sleep 20s
+        shell: bash
+        
       - name: Terraform version
         id: version
         run: terraform version
 
+      - name: Sleep for 20 secondes
+        run: sleep 20s
+        shell: bash
+        
       - name: Terraform Providers
         id: providers
         run: terraform providers
         
+      - name: Sleep for 20 secondes
+        run: sleep 20s
+        shell: bash
+        
       - name: Terraform format
         id: fmt
         run: terraform fmt ##-check
-      
+
+      - name: Sleep for 20 secondes
+        run: sleep 20s
+        shell: bash
+        
       - name: Terraform validate
         id: validate
         run: terraform validate
 
+      - name: Sleep for 20 secondes
+        run: sleep 20s
+        shell: bash
+        
       - name: Terraform plan
         id: plan
         #if: github.event_name == 'pull_request'
