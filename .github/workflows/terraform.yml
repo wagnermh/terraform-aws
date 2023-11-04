@@ -13,7 +13,7 @@ on:
     - terraform/**
 
 env: 
-  TF_LOG: DEBUG ##INFO
+  TF_LOG: INFO ##DEBUG
   TF_LOG_CORE: INFO
   TF_LOG_PROVIDER: INFO
   TF_ACC_LOG: INFO
