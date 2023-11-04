@@ -44,6 +44,10 @@ jobs:
       - name: Terraform version
         id: version
         run: terraform version
+
+      - name: Terraform Providers
+        id: providers
+        run: terraform providers
         
       - name: Terraform format
         id: fmt
