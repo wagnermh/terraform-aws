@@ -43,7 +43,7 @@ jobs:
 
       - name: Terraform version
         id: version
-        run: terrform version
+        run: terraform version
         
       - name: Terraform format
         id: fmt
