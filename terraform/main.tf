@@ -25,6 +25,8 @@ resource "aws_instance" "test_instance" {
               sudo service apache2 start
               EOF
 
+  user_data_replace_on_change = true
+
   tags = {
     Name = "test_instance"
   }
