@@ -18,9 +18,9 @@ resource "aws_instance" "test_instance" {
 
   user_data = <<-EOF
               #!/bin/bash
-              sudo apt-get update
+              sudo apt update
               #sudo upgrade -y
-              sudo apt-get install -y apache2 httpd php git
+              sudo apt install -y apache2 httpd php git
               sudo git clone https://github.com/brikis98/php-app.git /var/www/html/app
               sudo service apache2 start
               sudo service apache2 status
@@ -35,4 +35,4 @@ resource "aws_instance" "test_instance" {
   }
 }
 
-################
+#################
