@@ -118,12 +118,12 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
-      #- name: Terraform Apply
-      #  if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      #  run: terraform apply -auto-approve -input=false
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve -input=false
 
-      - name: Sleep for 10 seconds #3 minutes
-        run: sleep 10s #180s
+      - name: Sleep for 2 minutes #3 minutes
+        run: sleep 120s #180s
         shell: bash
 
       - name: Terraform Destroy
