@@ -15,6 +15,7 @@ provider "aws" {
 resource "aws_instance" "test_instance" {
   ami           = "ami-00448a337adc93c05" #Amazon Linux 2023 AMI# #"ami-830c94e3"#
   instance_type = "t3.nano"
+  vpc_security_group_ids = [aws_security_group.instance.id]
 
   user_data = file("user_data.sh") // Static File
 
