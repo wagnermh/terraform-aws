@@ -16,15 +16,7 @@ resource "aws_instance" "test_instance" {
   ami           = "ami-830c94e3"
   instance_type = "t2.nano"
 
-  user_data = <<EOF
-#!/bin/bash
-sudo apt -y update
-sudo apt -y install httpd apache2 git
-MYIP=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
-echo "<h2>WebServer with PrivateIP: $MYIP</h2><br>Built by Terraform" > /var/www/html/index.html
-service apache2 start
-#chkconfig apache2 on
-EOF
+  user_data = file("user_data.sh") // Static File
 
   user_data_replace_on_change = true
 
