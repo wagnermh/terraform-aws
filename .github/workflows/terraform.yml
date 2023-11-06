@@ -68,8 +68,8 @@ jobs:
         id: fmt
         run: terraform fmt ##-check
 
-      - name: Sleep for 20 secondes
-        run: sleep 20s
+      - name: Sleep for 5 secondes
+        run: sleep 5s
         shell: bash
         
       - name: Terraform validate
@@ -118,14 +118,14 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
-      #- name: Terraform Apply
-      #  if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      #  run: terraform apply -auto-approve -input=false
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve -input=false
 
-      #- name: Sleep for 2 minutes #3 minutes
-      #  run: sleep 120s #180s
-      #  shell: bash
+      - name: Sleep for 2 minutes #3 minutes
+        run: sleep 120s #180s
+        shell: bash
 
-      #- name: Terraform Destroy
-      #  if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      #  run: terraform destroy -auto-approve -input=false
+      - name: Terraform Destroy
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform destroy -auto-approve -input=false
