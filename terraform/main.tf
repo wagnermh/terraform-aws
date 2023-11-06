@@ -20,9 +20,12 @@ resource "aws_instance" "test_instance" {
               #!/bin/bash
               sudo apt-get update
               #sudo upgrade -y
-              sudo apt-get install -y apache2 php git
-              #sudo git clone https://github.com/brikis98/php-app.git /var/www/html/app
+              sudo apt-get install -y apache2 httpd php git
+              sudo git clone https://github.com/brikis98/php-app.git /var/www/html/app
               sudo service apache2 start
+              sudo service apache2 status
+              sudo httpd start
+              sudo httpd status
               EOF
 
   user_data_replace_on_change = true
