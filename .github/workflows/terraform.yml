@@ -44,24 +44,24 @@ jobs:
         id: init
         run: terraform init ##-backend-config="bucket=$BUCKET_TF_STATE"
 
-      - name: Sleep for 20 secondes
-        run: sleep 20s
+      - name: Sleep for 5 secondes
+        run: sleep 5s
         shell: bash
         
       - name: Terraform version
         id: version
         run: terraform version
 
-      - name: Sleep for 20 secondes
-        run: sleep 20s
+      - name: Sleep for 5 secondes
+        run: sleep 5s
         shell: bash
         
       - name: Terraform Providers
         id: providers
         run: terraform providers
         
-      - name: Sleep for 20 secondes
-        run: sleep 20s
+      - name: Sleep for 5 secondes
+        run: sleep 5s
         shell: bash
         
       - name: Terraform format
@@ -76,8 +76,8 @@ jobs:
         id: validate
         run: terraform validate
 
-      - name: Sleep for 20 secondes
-        run: sleep 20s
+      - name: Sleep for 5 secondes
+        run: sleep 5s
         shell: bash
         
       - name: Terraform plan
@@ -118,9 +118,9 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
-      #- name: Terraform Apply
-      #  if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      #  run: terraform apply -auto-approve -input=false
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve -input=false
 
       - name: Sleep for 1 minute #3 minutes
         run: sleep 60s #180s
